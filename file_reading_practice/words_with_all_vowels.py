@@ -40,3 +40,19 @@ Explanation:
 =================================================
 
 """
+def has_all_vowels(word):
+    vowels = set("aeiou")
+    return vowels.issubset(set(word.lower()))
+
+def print_words_with_all_vowels(filename):
+    count = 0
+    with open(filename, "r") as f:
+        for word in f:
+            word = word.strip().lower()
+            if has_all_vowels(word):
+                print(word)
+                count += 1
+    print("Total words with all vowels:", count)
+
+
+print_words_with_all_vowels("sowpods.txt")
